@@ -1673,7 +1673,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v74, Lcom/android/server/InputMethodManagerService;
+    new-instance v74, Lcom/android/server/MzInputMethodManagerService;
 
     move-object/from16 v0, v74
 
@@ -3022,6 +3022,8 @@
 
     if-nez v57, :cond_1f
 
+    goto :goto_flyme_0
+
     :try_start_3b
     const-string v4, "SystemServer"
 
@@ -3056,6 +3058,7 @@
     .restart local v36    # "atlas":Lcom/android/server/AssetAtlasService;
     :cond_1f
     :goto_29
+    :goto_flyme_0
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v4
@@ -3196,11 +3199,11 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v107, Lcom/android/server/ThemeService;
+    #new-instance v107, Lcom/android/server/ThemeService;
 
-    move-object/from16 v0, v107
+    #move-object/from16 v0, v107
 
-    invoke-direct {v0, v3}, Lcom/android/server/ThemeService;-><init>(Landroid/content/Context;)V
+    #invoke-direct {v0, v3}, Lcom/android/server/ThemeService;-><init>(Landroid/content/Context;)V
     :try_end_3f
     .catch Ljava/lang/Throwable; {:try_start_3f .. :try_end_3f} :catch_27
 
@@ -3211,7 +3214,7 @@
 
     move-object/from16 v0, v107
 
-    invoke-static {v4, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
+    #invoke-static {v4, v0}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
     :try_end_40
     .catch Ljava/lang/Throwable; {:try_start_40 .. :try_end_40} :catch_38
 
@@ -3613,6 +3616,14 @@
     check-cast v86, Lcom/android/server/MmsServiceBroker;
 
     .restart local v86    # "mmsService":Lcom/android/server/MmsServiceBroker;
+    move-object/from16 v0, p0
+
+    move-object/from16 v4, v120
+
+    move-object/from16 v5, v114
+
+    invoke-static {v0, v4, v5}, Lcom/android/server/SystemServer$FlymeInjector;->startFlymeServices(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wallpaper/WallpaperManagerService;)V
+
     :try_start_49
     invoke-virtual/range {v111 .. v111}, Lcom/android/server/VibratorService;->systemReady()V
     :try_end_49

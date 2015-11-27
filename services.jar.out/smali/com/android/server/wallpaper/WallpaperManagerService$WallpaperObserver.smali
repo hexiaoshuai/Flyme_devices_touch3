@@ -107,6 +107,9 @@
 
     iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperObserver;->mKeyguardWallpaperFile:Ljava/io/File;
 
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperObserver;->initLockWallpaperFile()V
+
     return-void
 .end method
 
