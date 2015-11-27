@@ -239,7 +239,7 @@
 
     move-result-object v4
 
-    const v5, 0x11200b3
+    const v5, #android:bool@config_fetch_apn_from_omh_card#t
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1632,7 +1632,7 @@
 
     move-result-object v7
 
-    const v8, 0x112007b
+    const v8, #android:bool@config_dontPreferApn#t
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
     :try_end_0
@@ -4561,7 +4561,7 @@
 
     move-result-object v3
 
-    const v4, 0x1070038
+    const v4, #android:array@config_onlySingleDcAllowed#t
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -5753,7 +5753,7 @@
 
     move-result-object v0
 
-    const v1, 0x1120093
+    const v1, #android:bool@config_auto_attach_data_on_creation#t
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -7235,7 +7235,7 @@
 
     move-result-object v8
 
-    const v9, 0x11200a6
+    const v9, #android:bool@config_enable_mms_with_mobile_data_off#t
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -10258,7 +10258,7 @@
 
     move-result-object v7
 
-    const v8, 0x1070016
+    const v8, #android:array@networkAttributes#t
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -11599,7 +11599,7 @@
 
     move-result-object v9
 
-    const v10, 0x11200a6
+    const v10, #android:bool@config_enable_mms_with_mobile_data_off#t
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -13908,7 +13908,7 @@
 
     move-result-object v2
 
-    const v3, 0x112007c
+    const v3, #android:bool@config_restartRadioAfterProvisioning#t
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -15926,6 +15926,8 @@
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
+
+    const-string v2, "mobile_data"
 
     invoke-static {v1, v2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
