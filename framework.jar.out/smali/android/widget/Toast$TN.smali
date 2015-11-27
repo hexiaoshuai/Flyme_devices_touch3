@@ -397,6 +397,8 @@
 
     iget-object v4, p0, Landroid/widget/Toast$TN;->mWM:Landroid/view/WindowManager;
 
+    invoke-direct/range {p0 .. p0}, Landroid/widget/Toast$TN;->mzHookToastType()V
+
     iget-object v5, p0, Landroid/widget/Toast$TN;->mView:Landroid/view/View;
 
     invoke-interface {v4, v5}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
