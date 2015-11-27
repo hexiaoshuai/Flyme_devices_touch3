@@ -9045,8 +9045,6 @@
     <public type="^attr-private" name="layout_ignoreOffset" id="0x011600af" />
     <public type="^attr-private" name="neverEncrypt" id="0x011600b0" />
     <public type="^attr-private" name="cantSaveState" id="0x011600b1" />
-    <public type="^attr-private" name="primaryUserOnly" id="0x011600b2" />
-</resources>=======
     <public type="^attr-private" name="allowViaWhitelist" id="0x011600b2" />
     <public type="^attr-private" name="primaryUserOnly" id="0x011600b3" />
 </resources>
