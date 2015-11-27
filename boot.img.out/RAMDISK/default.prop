@@ -9,6 +9,7 @@ service.adb.enable=1
 sys.usb.config=adb
 persist.service.adb.enable=1
 ro.zygote=zygote32
+persist.sys.usb.config=mtp,adb
 dalvik.vm.dex2oat-Xms=64m
 dalvik.vm.dex2oat-Xmx=512m
 dalvik.vm.image-dex2oat-Xms=64m
