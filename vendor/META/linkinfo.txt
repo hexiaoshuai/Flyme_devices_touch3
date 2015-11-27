@@ -1,0 +1,3 @@
+system/etc/firmware/wcd9306/wcd9306_mbhc.bin|/data/misc/audio/mbhc.bin
+system/etc/firmware/wcd9306/wcd9320_anc.bin|/data/misc/audio/wcd9310_anc.bin
+system/lib/modules/wlan.ko|/system/lib/modules/pronto/pronto_wlan.ko
