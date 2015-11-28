@@ -1542,7 +1542,7 @@
     .line 519
     move-object/from16 v0, p0
 
-    move-object/from16 v4, v125
+    move-object/from16 v4, v120
 
     invoke-static {v0, v4}, Lcom/android/server/SystemServer$FlymeInjector;->startFlymeMoveWindowService(Lcom/android/server/SystemServer;Lcom/android/server/wm/WindowManagerService;)V
 
@@ -3204,6 +3204,7 @@
     #move-object/from16 v0, v107
 
     #invoke-direct {v0, v3}, Lcom/android/server/ThemeService;-><init>(Landroid/content/Context;)V
+    const/16 v107, 0x0
     :try_end_3f
     .catch Ljava/lang/Throwable; {:try_start_3f .. :try_end_3f} :catch_27
 

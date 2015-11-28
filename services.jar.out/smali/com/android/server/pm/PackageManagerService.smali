@@ -17013,9 +17013,9 @@
     :cond_flyme_0
     invoke-static/range {p2 .. p3}, Lcom/android/server/pm/InjectorPMS;->isExternalSystemPackage(Landroid/content/pm/PackageParser$Package;Lcom/android/server/pm/BasePermission;)Z
 
-    move-result v4
+    move-result v5
 
-    if-nez v4, :cond_flyme_1
+    if-nez v5, :cond_flyme_1
 
     const/4 v0, 0x0
 
