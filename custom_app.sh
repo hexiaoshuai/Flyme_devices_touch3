@@ -16,4 +16,11 @@ elif [ "$apkBaseName" = "TelephonyProvider" ];then
         echo ">>> in custom_app for $apkBaseName to adjust the interface "getAllMessagesFromIcc" with "getAllMessagesFromIccExtended""
         find $tempSmaliDir/ -name "*.smali" | xargs sed -i 's#invoke-static {}, Landroid\/telephony\/SmsManager;->getAllMessagesFromIcc()Ljava\/util\/ArrayList#invoke-static {}, Landroid\/telephony\/SmsManager;->getAllMessagesFromIccExtended()Ljava\/util\/ArrayList#g'
 
+elif [ "$apkBaseName" = "Settings" ];then
+        echo ">>> in custom_app for $apkBaseName to remove some icons"
+        rm -rf $tempSmaliDir/res/drawable-hdpi-v4
+
+elif [ "$apkBaseName" = "DownloadProviderUi" ];then
+        echo ">>> in custom_app for $apkBaseName to remove some icons"
+        rm -rf $tempSmaliDir/res/mipmap-hdpi-v4
 fi
