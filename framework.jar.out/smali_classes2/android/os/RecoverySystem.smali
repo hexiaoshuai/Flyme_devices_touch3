@@ -2149,7 +2149,7 @@
 .end method
 
 .method public static mzRebootWipeUserData(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+    .locals 8
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "intent"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
@@ -2215,7 +2215,10 @@
     move-result-object v2
 
     .local v2, "reason":Ljava/lang/String;
-    invoke-static {p0, v3, v2}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;)V
+    
+    const/4 v7, 0x0
+
+    invoke-static {p0, v3, v2, v7}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;ZLjava/lang/String;Z)V
 
     goto :goto_0
 .end method
