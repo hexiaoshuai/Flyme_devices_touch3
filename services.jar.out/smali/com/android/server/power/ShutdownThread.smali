@@ -1173,17 +1173,18 @@
     return-void
 .end method
 
-.method public static rebootOrShutdown(ZLjava/lang/String;)V
+.method public static rebootOrShutdown(Landroid/content/Context;ZLjava/lang/String;)V
     .locals 5
-    .param p0, "reboot"    # Z
-    .param p1, "reason"    # Ljava/lang/String;
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "reboot"    # Z
+    .param p2, "reason"    # Ljava/lang/String;
 
     .prologue
     .line 685
-    invoke-static {p0, p1}, Lcom/android/server/power/ShutdownThread;->deviceRebootOrShutdown(ZLjava/lang/String;)V
+    invoke-static {p1, p2}, Lcom/android/server/power/ShutdownThread;->deviceRebootOrShutdown(ZLjava/lang/String;)V
 
     .line 686
-    if-eqz p0, :cond_0
+    if-eqz p1, :cond_1
 
     .line 687
     const-string v2, "ShutdownThread"
@@ -1198,7 +1199,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
@@ -1209,7 +1210,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 688
-    invoke-static {p1}, Lcom/android/server/power/PowerManagerService;->lowLevelReboot(Ljava/lang/String;)V
+    invoke-static {p2}, Lcom/android/server/power/PowerManagerService;->lowLevelReboot(Ljava/lang/String;)V
 
     .line 689
     const-string v2, "ShutdownThread"
@@ -1219,6 +1220,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 708
+    :cond_0
     :goto_0
     const-string v2, "ShutdownThread"
 
@@ -1233,10 +1235,11 @@
     return-void
 
     .line 692
-    :cond_0
+    :cond_1
+    if-eqz p0, :cond_0
     new-instance v1, Landroid/os/SystemVibrator;
 
-    invoke-direct {v1}, Landroid/os/SystemVibrator;-><init>()V
+    invoke-direct {v1, p0}, Landroid/os/SystemVibrator;-><init>(Landroid/content/Context;)V
 
     .line 694
     .local v1, "vibrator":Landroid/os/Vibrator;
@@ -2273,11 +2276,15 @@
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     .line 565
-    sget-boolean v2, Lcom/android/server/power/ShutdownThread;->mReboot:Z
+    move-object/from16 v0, p0
 
-    sget-object v4, Lcom/android/server/power/ShutdownThread;->mRebootReason:Ljava/lang/String;
+    iget-object v2, v0, Lcom/android/server/power/ShutdownThread;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v4}, Lcom/android/server/power/ShutdownThread;->rebootOrShutdown(ZLjava/lang/String;)V
+    sget-boolean v4, Lcom/android/server/power/ShutdownThread;->mReboot:Z
+
+    sget-object v5, Lcom/android/server/power/ShutdownThread;->mRebootReason:Ljava/lang/String;
+
+    invoke-static {v2, v4, v5}, Lcom/android/server/power/ShutdownThread;->rebootOrShutdown(Landroid/content/Context;ZLjava/lang/String;)V
 
     .line 566
     return-void
